@@ -2,11 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                sh 'sudo yum install httpd -y'
+                sh 'sudo systemctl start httpd'
+                sh 'sudo git clone https://github.com/ashwin1-dev/jenkin3.git  /var/www/html '
             }
         }
     }
 }
-
